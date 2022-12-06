@@ -9,10 +9,10 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 
 public class LectorJson {
-    public ArrayList<Pokemon> leeFicheroJson(String fichero){
+    public ArrayList<Pokemon> leeFicheroJson(){
         try {
             //lee el fichero que le pasamos y lo carga en un reader
-            Reader reader = Files.newBufferedReader(Paths.get(fichero));
+            Reader reader = Files.newBufferedReader(Paths.get("./src/main/resources/pokemonConId.json"));
             // convierte el array JSON a un arraylist de users
             ArrayList<Pokemon> listaPokemon =
                     new Gson().fromJson(reader, new TypeToken<ArrayList<Pokemon>>() {}.getType());

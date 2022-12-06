@@ -12,13 +12,13 @@ import java.util.ArrayList;
 public class PokemonController {
     @GetMapping("/pokemons")
     public ArrayList<Pokemon> pokemons(){
-        ArrayList<Pokemon> listaPokemons = new LectorJson().leeFicheroJson("./src/main/resources/pokemonConId.json");
+        ArrayList<Pokemon> listaPokemons = new LectorJson().leeFicheroJson();
         return listaPokemons;
     }
 
     @GetMapping("/pokemon/porNombre/{nombre}")
     public ResponseEntity<Pokemon> getPorNombre(@PathVariable String nombre){
-        ArrayList<Pokemon> listaPokemons = new LectorJson().leeFicheroJson("./src/main/resources/pokemonConId.json");
+        ArrayList<Pokemon> listaPokemons = new LectorJson().leeFicheroJson();
         Pokemon encontrado = null;
         for (Pokemon pokemon : listaPokemons) {
             if (pokemon.getName().equalsIgnoreCase(nombre)) {
@@ -29,7 +29,7 @@ public class PokemonController {
     }
     @GetMapping("/pokemon/porTipo/{tipo}")
     public ArrayList<Pokemon>  getPortipo(@PathVariable String tipo){
-        ArrayList<Pokemon> listaPokemons = new LectorJson().leeFicheroJson("./src/main/resources/pokemonConId.json");
+        ArrayList<Pokemon> listaPokemons = new LectorJson().leeFicheroJson();
         ArrayList<Pokemon> listaEncontrados = new ArrayList<>();
         for (Pokemon pokemon : listaPokemons) {
             if (pokemon.getTipo1().equalsIgnoreCase(tipo) || pokemon.getTipo2().equalsIgnoreCase(tipo)) {
