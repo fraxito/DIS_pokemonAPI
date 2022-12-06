@@ -12,8 +12,7 @@ import java.util.ArrayList;
 public class PokemonController {
     @GetMapping("/pokemons")
     public ArrayList<Pokemon> pokemons(){
-        ArrayList<Pokemon> listaPokemons = new LectorJson().leeFicheroJson();
-        return listaPokemons;
+        return new LectorJson().leeFicheroJson();
     }
 
     @GetMapping("/pokemon/porNombre/{nombre}")
